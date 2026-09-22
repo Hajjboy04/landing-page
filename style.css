@@ -1,0 +1,310 @@
+
+
+:root {
+  /* Brand colors */
+  --navy:       #12213F;  /* headings, dark text, footer/cta background */
+  --blue:       #2E5FE8;  /* primary accent — buttons, icons, checkmarks */
+  --blue-dark:  #1B3FB0;  /* logo gradient end, outline-button text */
+  --green:      #189B63;  /* "in stock" / "approved" success color */
+
+  /* Neutrals */
+  --bg:         #FFFFFF;  /* page background */
+  --bg-soft:    #F4F7FE;  /* soft section background, mockup panel fill */
+  --line:       #E6EAF3;  /* hairline borders, dividers */
+  --text:       #33415C;  /* body text */
+  --text-dim:   #6B7A99;  /* secondary / muted text */
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. Base elements
+   -------------------------------------------------------------------------- */
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--navy);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  color: var(--text-dim);
+  max-width: 52ch; /* keeps paragraphs from stretching too wide to read */
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Feature sections (numbered 01–05, screenshot mockup + text side by side)
+   .feature.reverse flips which side the mockup sits on, using CSS `direction`
+   so the DOM order (mockup first) can stay the same for every section.
+   -------------------------------------------------------------------------- */
+.feature {
+  padding: 72px 32px;
+}
+
+.feature .grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.feature.reverse .grid {
+  direction: rtl; /* mirrors the column order... */
+}
+
+.feature.reverse .grid > * {
+  direction: ltr; /* ...but keeps the text inside each column readable */
+}
+
+.feature .num {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  color: var(--navy);
+}
+
+.num-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.num-row .dash {
+  width: 36px;
+  height: 2px;
+  background: var(--blue);
+}
+
+.num-row h2 {
+  font-size: 26px;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15.5px;
+  color: var(--text);
+}
+
+.check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check svg {
+  width: 12px;
+  height: 12px;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Screenshot mockups (used inside each numbered feature section)
+   .mock-wrap draws the faded triangle canvas behind the mockup card;
+   .app-mock is the "browser window" card itself.
+   -------------------------------------------------------------------------- */
+.mock-wrap {
+  position: relative;
+}
+
+.mock-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -34px -34px -34px -56px;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Cpolygon points='2,2 9,2 5.5,8.5' fill='%232E5FE8' fill-opacity='0.4'/%3E%3Cpolygon points='20,16 27,16 23.5,22.5' fill='%232E5FE8' fill-opacity='0.22'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 36px 36px;
+  -webkit-mask-image: radial-gradient(circle at 28% 45%, black 0%, transparent 68%);
+          mask-image: radial-gradient(circle at 28% 45%, black 0%, transparent 68%);
+}
+
+.mock-wrap .app-mock {
+  position: relative;
+  z-index: 1; /* keeps the mockup card above the triangle canvas */
+}
+
+.app-mock {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 18px 40px -22px rgba(18, 33, 63, .25);
+}
+
+.app-mock .titlebar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.app-mock .titlebar span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.app-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.app-panel h4 {
+  margin: 0 0 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* Data table inside a mockup (invoices, projects, stock, etc.) */
+table.mock-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+table.mock-table th {
+  text-align: left;
+  color: var(--text-dim);
+  font-weight: 600;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+table.mock-table td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+}
+
+/* Status pills used inside mockup tables */
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.badge-green { background: #E4F6EC; color: var(--green); }
+.badge-amber { background: #FCEFD8; color: #B77B12; }
+.badge-blue  { background: #E8EEFD; color: var(--blue-dark); }
+
+.mini-btn {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Kanban board mockup (Project Management section) */
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.kanban .col {
+  background: var(--bg-soft);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 11.5px;
+}
+
+.kanban .col h5 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.kanban .card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+/* Subtotal / VAT / total rows (Accounting mockup) */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 5px 0;
+  color: var(--text-dim);
+}
+
+.summary-row b {
+  color: var(--navy);
+}
+
+
+
+/* --------------------------------------------------------------------------
+   9. Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 840px) {
+  .feature .grid,
+  .feature.reverse .grid {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+}

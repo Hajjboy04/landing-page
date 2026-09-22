@@ -2,13 +2,413 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>OLTEP ERP - Integrated Business Solutions</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="./style.css">
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- JavaScript with defer attribute in head -->
+    <script src="script.js" defer></script>
 </head>
 <body>
+
+    <!-- FIXED BOTTOM-LEFT WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/255782979812" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-float-text">Chat with us</span>
+    </a>
+
+    <!-- SQUEEZING TOP NAVIGATION BAR -->
+    <header id="main-header">
+        <div id="nav-container" class="nav-container">
+            
+            <!-- Logo (Left) -->
+            <a href="#" class="logo-link">
+                <div class="logo-box">O</div>
+                <span class="logo-text"><span>OLTEP</span></span>
+            </a>
+
+            <!-- Navigation Links (Center - Desktop) -->
+            <nav class="nav-links">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Action Button (Right - Desktop) -->
+            <div class="actions-wrapper">
+                <a href="#contact" class="btn-demo">Request Demo</a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#contact" class="btn-demo" style="text-align: center; margin-top: 0.5rem;">Request Demo</a>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-bg-container">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80" alt="Background" class="hero-bg-img">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Integrated Business Solutions</h1>
+            <p class="hero-subtitle">Streamline your operations with OLTEP ERP. Modular, fast, and scalable for modern enterprises.</p>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        
+        <!-- 100% WIDTH SECTION HEADER CARD CONTAINER -->
+        <div class="section-header">
+            <span class="section-tag">Core Modules</span>
+            <h2 class="section-title">Powerful Business Features</h2>
+            <p class="section-description">Hover or tap any horizontal card below to expand and discover detailed module capabilities.</p>
+        </div>
+
+        <!-- HORIZONTAL EXPANDING ACCORDION CARDS CONTAINER -->
+        <div class="features-accordion">
+            
+            <!-- MODULE 1: ACCOUNTING & FINANCE -->
+            <div class="accordion-card" onclick="toggleAccordion(this)">
+                <div>
+                    <div class="accordion-card-header">
+                        <div class="accordion-icon">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <span class="accordion-number">01</span>
+                    </div>
+                    <h3 class="accordion-title">Accounting & Finance</h3>
+                </div>
+
+                <div class="accordion-details">
+                    <p class="accordion-desc">Complete financial management with automated general ledgers, invoicing, tax compliance, and real-time cash flow analytics.</p>
+                    <ul class="accordion-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> Automated Billing & Invoicing</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Multi-Currency Support</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Financial Statements & Audit</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MODULE 2: BUSINESS MANAGEMENT -->
+            <div class="accordion-card" onclick="toggleAccordion(this)">
+                <div>
+                    <div class="accordion-card-header">
+                        <div class="accordion-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <span class="accordion-number">02</span>
+                    </div>
+                    <h3 class="accordion-title">Business Management</h3>
+                </div>
+
+                <div class="accordion-details">
+                    <p class="accordion-desc">Centralize company workflow, track performance metrics, and optimize strategic decision-making with executive dashboards.</p>
+                    <ul class="accordion-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> Performance Dashboards</li>
+                        <li><i class="fa-solid fa-circle-check"></i> CRM & Sales Pipeline</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Operational Insights</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MODULE 3: PROCUREMENT -->
+            <div class="accordion-card" onclick="toggleAccordion(this)">
+                <div>
+                    <div class="accordion-card-header">
+                        <div class="accordion-icon">
+                            <i class="fa-solid fa-truck-field"></i>
+                        </div>
+                        <span class="accordion-number">03</span>
+                    </div>
+                    <h3 class="accordion-title">Procurement</h3>
+                </div>
+
+                <div class="accordion-details">
+                    <p class="accordion-desc">Streamline supplier relations, manage purchase orders seamlessly, and ensure cost efficiency across supply chains.</p>
+                    <ul class="accordion-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> Vendor Portal & Evaluation</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Automated PO Approval</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Purchase Tracking</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MODULE 4: PROJECT MANAGEMENT -->
+            <div class="accordion-card" onclick="toggleAccordion(this)">
+                <div>
+                    <div class="accordion-card-header">
+                        <div class="accordion-icon">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <span class="accordion-number">04</span>
+                    </div>
+                    <h3 class="accordion-title">Project Management</h3>
+                </div>
+
+                <div class="accordion-details">
+                    <p class="accordion-desc">Plan, execute, and monitor milestones, resource allocations, time tracking, and team budgets in real time.</p>
+                    <ul class="accordion-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> Gantt Charts & Timelines</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Resource Allocation</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Budget & Cost Control</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MODULE 5: STOCKKEEPING AND INVENTORY -->
+            <div class="accordion-card" onclick="toggleAccordion(this)">
+                <div>
+                    <div class="accordion-card-header">
+                        <div class="accordion-icon">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <span class="accordion-number">05</span>
+                    </div>
+                    <h3 class="accordion-title">Stockkeeping & Inventory</h3>
+                </div>
+
+                <div class="accordion-details">
+                    <p class="accordion-desc">End-to-end warehouse tracking with automated reorder alerts, barcode scanning, and multi-location stock control.</p>
+                    <ul class="accordion-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> Real-time Stock Audits</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Multi-Warehouse Support</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Automated Reordering</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+           <main class="contact-page">
+
+        <!-- =========================
+             PART 1 - CONTACT DETAILS
+        ========================== -->
+        <section class="contact-info">
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div>
+                        <h3>Address</h3>
+                        <p>Dar es Salaam, Tanzania</p>
+                    </div>
+                </div>
+
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+
+                    <div>
+                        <h3>Email</h3>
+                        <p>info@example.com</p>
+                    </div>
+                </div>
+
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+255 700 000 000</p>
+                    </div>
+                </div>
+
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div>
+                        <h3>Working Hours</h3>
+                        <p>Mon - Fri: 8:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+
+            <!-- Social Media -->
+            <div class="social-section">
+
+                <h3>Follow Us</h3>
+
+                <div class="social-links">
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="#" aria-label="X">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PART 2 - MAP
+        ========================== -->
+        <section class="map-section">
+
+            <iframe
+                src="https://www.google.com/maps?q=Dar%20es%20Salaam%2C%20Tanzania&output=embed"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+
+        </section>
+
+
+        <!-- =========================
+             PART 3 - CONTACT FORM
+        ========================== -->
+        <section class="form-section">
+
+            <div class="form-container">
+
+                <h2>Get In Touch</h2>
+
+                <p class="form-description">
+                    Have a question or need help? Send us a message
+                    and we'll get back to you.
+                </p>
+
+
+                <form id="contactForm">
+
+                    <div class="input-group">
+
+                        <label for="name">Name</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="email">Email</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="subject">Subject</label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="Enter subject"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="message">Message</label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            placeholder="Write your message..."
+                            required></textarea>
+
+                    </div>
+
+
+                    <button type="submit">
+                        Send Message
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                    <p id="formMessage"></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+    </section>
+
+    <footer class="footer-bottom">
+        <p>&copy; 2026 OLTEP ERP. All rights reserved. Empowering business efficiency worldwide.</p>
+    </footer>
+
+    <!-- Link to external JavaScript logic -->
+    <script src="script.js"></script>
 
 <section class="feature" id="modules">
   <div class="grid">

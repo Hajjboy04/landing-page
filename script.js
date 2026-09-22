@@ -2,7 +2,8 @@
 const header = document.getElementById('main-header');
 const mobileToggleBtn = document.getElementById('mobile-toggle-btn');
 const mobileMenu = document.getElementById('mobile-menu');
-
+const contactForm = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
 // Toggle Horizontal Accordion Card Active State on Tap/Click
 function toggleAccordion(element) {
     document.querySelectorAll('.accordion-card').forEach(card => {
@@ -18,6 +19,32 @@ window.addEventListener('scroll', () => {
     } else if (header) {
         header.classList.remove('scrolled');
     }
+});
+
+// contact section
+contactForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+
+    if (!name || !email || !subject || !message) {
+
+        formMessage.textContent = "Please fill in all fields.";
+
+        return;
+    }
+
+
+    formMessage.textContent =
+        "Thank you! Your message has been received.";
+
+    contactForm.reset();
+
 });
 
 // Mobile Menu Toggle with Defensive Null Checks

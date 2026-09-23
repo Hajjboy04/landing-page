@@ -33,19 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     const fadeElements = document.querySelectorAll('.scroll-fade');
 
-    const heroSectionEl = document.querySelector('.hero-section');
-    if (heroSectionEl) heroSectionEl.classList.add('is-visible');
-
     if ('IntersectionObserver' in window && fadeElements.length > 0) {
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
+                } else {
+                    entry.target.classList.remove('is-visible');
                 }
             });
         }, {
             threshold: 0.08,
-            rootMargin: '0px 0px -40px 0px'
+            rootMargin: '0px 0px -50px 0px'
         });
 
         fadeElements.forEach(el => fadeObserver.observe(el));
